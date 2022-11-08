@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+
+  </head>
+  <body>
+    <!-- page content -->
+  </body>
+  <script>
+
+    const exampleSocket = new WebSocket("ws://162.55.61.53:10000");
+    let count = 0;
+    let count_old = 0;
+    exampleSocket.onmessage = (event) => {
+        count++;
+    }
+    exampleSocket.onopen = (event) => {
+        console.log("Open!")
+    };
+
+    setInterval(()=>{
+        console.log(count-count_old);
+        count_old = count;
+    },5000)
+  </script>
+</html>
